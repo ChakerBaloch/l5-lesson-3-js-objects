@@ -40,7 +40,11 @@
     <script>
 
         //Exercise 1 Select the img, h3, and p tags and assign each one a variable
-
+        const img = document.querySelector('#dino-pic')
+        let dinoName = document.querySelector('#dino-name');
+        let descript = document.querySelector('#dino-description');
+        let dinoPeriod = document.querySelector('#dino-period');
+        
 
 
         /* Exercise 2
@@ -48,10 +52,11 @@
         Make 3 key-value pairs: image, name, info.
         Show your object in the console. 
         */
-
-
-
-
+        let myDino = {
+            image: 'images/allosaurus.jpeg',
+            name: "Allosaurus",
+            info: 'Lorem ipsum dolor sit amet.'
+        }
 
         /* Exercise 3
         Show the object data on the page.
@@ -59,14 +64,19 @@
         You can use the .src property to show the image.  Which DOM element property can we use to set text?
         Practice both dot notation and bracket notation.
         */
-
+        img.src = myDino.image;
+        dinoName.innerHTML = myDino.name;
+        descript.innerHTML = myDino.info;
+        
 
 
         /*Exercise 4
         Change the value of one of the keys in your object.
         To update what is shown on the page, run the line of code that inserts the value again.
         */
-
+        myDino.name = 'Dracorex';
+        //myDino[name] = 'Dracorex';
+        dinoName.innerHTML = myDino.name;
 
 
         /* Exercise 5
@@ -75,22 +85,39 @@
         as Jurassic or Cretaceious.
         Select the dino-period span tag, and insert the value of the new property to show it on the page.
         */
-
+        myDino.period = 'Jurassic';
+        //myDino['period'] = 'Jurassic';
+        dinoPeriod.innerHTML = myDino.period;
 
 
         /*Exercise 6
        Use the Object.keys() method to show an array of keys in the console.
        */
-
+        let arr = Object.keys(myDino);
+        let val = Object.values(myDino);
+        let entri = Object.entries(myDino);
+        console.log(arr);
+        console.log(val);
+        console.log(entri);
 
 
         /*Exercise 7
         Use a for loop with the "in" keyword to see all values printed in the console.
         Will this work with dot or bracket syntax?
         */
+        for (conPrint in myDino) {
+            let key = conPrint;
+            let value = myDino[conPrint];
+            //let dotVal = myDino.i;
+
+            console.log(conPrint);
+            //console.log(i);
+            //console.log(myDino[i]);
+           // console.log(dotVal);
 
 
 
+        }
 
     </script>
 </body>

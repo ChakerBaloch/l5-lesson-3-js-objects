@@ -12,11 +12,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@200;300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
     <script src="dinosaurs.js"></script>
+
+    
 </head>
 
 <body>
     <header>
         <h1>Dinosaurs</h1>
+        <nav><a id="dinosaur">All</a><a id="balloon">Diet</a><a id="dirigible">Carnivore</a><a
+            id="glider">Herbivore</a></nav>
+            
         <!--<nav><a id="">All</a></nav>-->
     </header>
     <main>
@@ -30,12 +35,14 @@
     <script>
         /* Exercise 8
         Examine dinosaurs.js
-        It contains an array [] of objects {}. Notice how each object contains hte same keys.
+        It contains an array [] of objects {}. Notice how each object contains the same keys.
         We are going to show all of the dinosaurs on the web page without having to write HTML for each one.
         
         Assign a variable to the dinosaurs array.
         Select and assign a varible to <main>
         */
+        const dinos = dinosaurs;
+        const container = document.querySelector('main');
 
 
 
@@ -45,7 +52,22 @@
         Show the image, name, diet, length, period, and info for each dinosaur.
         Remember to use the += operator so the additions are cumulative.
         */
+        dinos.forEach(function(dino){
+            let dinoTemp = `<div class = "dinosaur">
+                                <div class = "dino-image">
+                                    <img src = "images/${dino.img}">
+                                </div>
+                                <div class = "dino-info">
+                                    <h3>${dino.name}</h3>
+                                    <p>Diet: ${dino.diet} <br />
+                                        length: ${dino.length} <br />
+                                        Period: ${dino.period} </p>
+                                    <p>${ dino.info }</p>
+                                </div>
+                            </div>`
+        container.innerHTML += dinoTemp;
 
+        });
 
 
 
